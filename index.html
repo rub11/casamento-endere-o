@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Chegar no Casamento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(135deg, #f9f5ff 0%, #f3edff 100%);
+            color: #5a4a6a;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #e6d4f7 0%, #d9c2f0 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23967bbc' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .app-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #7b5fa5;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-message {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #6a5a7a;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .instruction {
+            font-size: 1.1rem;
+            color: #8a7a9a;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .options-container {
+            padding: 40px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(230, 212, 247, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c9b0e8, #a78fcf);
+        }
+
+        .option-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .option-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #7b5fa5;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .option-description {
+            color: #8a7a9a;
+            font-size: 0.95rem;
+        }
+
+        .details-screen {
+            padding: 40px 30px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .details-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .details-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #7b5fa5;
+            margin-bottom: 15px;
+        }
+
+        .details-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #6a5a7a;
+        }
+
+        .location-info {
+            background: rgba(240, 235, 247, 0.5);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #c9b0e8;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            margin-right: 12px;
+            color: #a78fcf;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #6a5a7a;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            color: #5a4a6a;
+        }
+
+        .countdown-container {
+            background: linear-gradient(135deg, #e6d4f7 0%, #d9c2f0 100%);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #6a5a7a;
+            margin-bottom: 15px;
+        }
+
+        .countdown-timer {
+            font-size: 1.8rem;
+            color: #7b5fa5;
+            font-weight: 500;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            border: 1px solid #c9b0e8;
+            border-radius: 50px;
+            padding: 14px 25px;
+            font-size: 1rem;
+            color: #7b5fa5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+        }
+
+        .nav-button:hover {
+            background: #e6d4f7;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-icon {
+            font-size: 1.3rem;
+        }
+
+        .back-button {
+            display: block;
+            margin: 0 auto;
+            background: transparent;
+            border: 1px solid #a78fcf;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            color: #7b5fa5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(167, 143, 207, 0.1);
+        }
+
+        .app-footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #e6d4f7 0%, #d9c2f0 100%);
+            color: #6a5a7a;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            .app-title {
+                font-size: 2.8rem;
+            }
+            
+            .welcome-message {
+                font-size: 1.2rem;
+            }
+            
+            .options-container {
+                padding: 30px 20px;
+            }
+            
+            .option-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .details-screen {
+                padding: 30px 20px;
+            }
+            
+            .details-title {
+                font-size: 2.3rem;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-button {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Tela Inicial -->
+        <div class="app-header">
+            <h1 class="app-title">Como Chegar no Casamento</h1>
+            <p class="welcome-message">Está chegando o grande dia! 💍</p>
+            <p class="instruction">Escolha abaixo pra onde você quer ir e venha celebrar com a gente este momento tão especial.</p>
+        </div>
+        
+        <div class="options-container" id="options-screen">
+            <div class="option-card" id="church-option">
+                <span class="option-icon">💒</span>
+                <h2 class="option-title">Cerimônia Religiosa</h2>
+                <p class="option-description">Momentos de fé, amor e gratidão</p>
+            </div>
+            
+            <div class="option-card" id="party-option">
+                <span class="option-icon">🏡</span>
+                <h2 class="option-title">Festa na Casa da Noiva</h2>
+                <p class="option-description">Celebração com alegria e música</p>
+            </div>
+        </div>
+        
+        <!-- Tela da Cerimônia -->
+        <div class="details-screen" id="church-screen">
+            <div class="details-header">
+                <h2 class="details-title">Cerimônia Religiosa</h2>
+                <p class="details-subtitle">Um momento sagrado de união</p>
+            </div>
+            
+            <div class="location-info">
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div class="info-text">
+                        <div class="info-label">Local</div>
+                        <div class="info-value">Igreja Matriz São Benedito</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">🏠</span>
+                    <div class="info-text">
+                        <div class="info-label">Endereço</div>
+                        <div class="info-value">Praça São Benedito, S/N, Centro, Biritiba Mirim – SP</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">📅</span>
+                    <div class="info-text">
+                        <div class="info-label">Data e Horário</div>
+                        <div class="info-value">15 de novembro de 2026, às 16h</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">💖</span>
+                    <div class="info-text">
+                        <div class="info-label">Descrição</div>
+                        <div class="info-value">Será um momento de fé, amor e gratidão. Esperamos você para testemunhar essa união abençoada.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="countdown-container">
+                <div class="countdown-title">Tempo restante para a cerimônia:</div>
+                <div class="countdown-timer" id="church-countdown">Calculando...</div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="https://www.google.com/maps/search/?api=1&query=Igreja+Matriz+São+Benedito,+Praça+São+Benedito,+Centro,+Biritiba+Mirim,+SP" class="nav-button" target="_blank">
+                    <span class="nav-icon">🗺️</span>
+                    Abrir no Google Maps
+                </a>
+                
+                <a href="https://waze.com/ul?q=Igreja+Matriz+São+Benedito,+Praça+São+Benedito,+Centro,+Biritiba+Mirim,+SP" class="nav-button" target="_blank">
+                    <span class="nav-icon">🚗</span>
+                    Abrir no Waze
+                </a>
+            </div>
+            
+            <button class="back-button" id="back-from-church">Voltar</button>
+        </div>
+        
+        <!-- Tela da Festa -->
+        <div class="details-screen" id="party-screen">
+            <div class="details-header">
+                <h2 class="details-title">Festa na Casa da Noiva</h2>
+                <p class="details-subtitle">Celebração com alegria e amor</p>
+            </div>
+            
+            <div class="location-info">
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div class="info-text">
+                        <div class="info-label">Local</div>
+                        <div class="info-value">Casa da Noiva</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">🏠</span>
+                    <div class="info-text">
+                        <div class="info-label">Endereço</div>
+                        <div class="info-value">Rua José Marques de Moura, nº 63, Bairro Vale Verde, Biritiba Mirim – SP</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">📅</span>
+                    <div class="info-text">
+                        <div class="info-label">Data e Horário</div>
+                        <div class="info-value">15 de novembro de 2026, às 19h</div>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <span class="info-icon">💖</span>
+                    <div class="info-text">
+                        <div class="info-label">Descrição</div>
+                        <div class="info-value">Depois da cerimônia, venha celebrar conosco em um ambiente cheio de alegria, música e boas energias.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="countdown-container">
+                <div class="countdown-title">Tempo restante para a festa:</div>
+                <div class="countdown-timer" id="party-countdown">Calculando...</div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+José+Marques+de+Moura,+63,+Vale+Verde,+Biritiba+Mirim,+SP" class="nav-button" target="_blank">
+                    <span class="nav-icon">🗺️</span>
+                    Abrir no Google Maps
+                </a>
+                
+                <a href="https://waze.com/ul?q=Rua+José+Marques+de+Moura,+63,+Vale+Verde,+Biritiba+Mirim,+SP" class="nav-button" target="_blank">
+                    <span class="nav-icon">🚗</span>
+                    Abrir no Waze
+                </a>
+            </div>
+            
+            <button class="back-button" id="back-from-party">Voltar</button>
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="app-footer">
+            <p>Estamos muito felizes por compartilhar este momento com você ❤️</p>
+            <p>Obrigado por fazer parte da nossa história.</p>
+        </div>
+    </div>
+
+    <script>
+        // Elementos da interface
+        const optionsScreen = document.getElementById('options-screen');
+        const churchScreen = document.getElementById('church-screen');
+        const partyScreen = document.getElementById('party-screen');
+        
+        const churchOption = document.getElementById('church-option');
+        const partyOption = document.getElementById('party-option');
+        
+        const backFromChurch = document.getElementById('back-from-church');
+        const backFromParty = document.getElementById('back-from-party');
+        
+        const churchCountdown = document.getElementById('church-countdown');
+        const partyCountdown = document.getElementById('party-countdown');
+        
+        // Datas dos eventos
+        const churchDate = new Date('2026-11-15T16:00:00');
+        const partyDate = new Date('2026-11-15T19:00:00');
+        
+        // Navegação entre telas
+        churchOption.addEventListener('click', () => {
+            optionsScreen.style.display = 'none';
+            churchScreen.style.display = 'block';
+        });
+        
+        partyOption.addEventListener('click', () => {
+            optionsScreen.style.display = 'none';
+            partyScreen.style.display = 'block';
+        });
+        
+        backFromChurch.addEventListener('click', () => {
+            churchScreen.style.display = 'none';
+            optionsScreen.style.display = 'block';
+        });
+        
+        backFromParty.addEventListener('click', () => {
+            partyScreen.style.display = 'none';
+            optionsScreen.style.display = 'block';
+        });
+        
+        // Função para calcular e exibir a contagem regressiva
+        function updateCountdown() {
+            const now = new Date();
+            
+            // Contagem para a cerimônia
+            const churchDiff = churchDate - now;
+            
+            if (churchDiff > 0) {
+                const churchDays = Math.floor(churchDiff / (1000 * 60 * 60 * 24));
+                const churchHours = Math.floor((churchDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const churchMinutes = Math.floor((churchDiff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                churchCountdown.innerHTML = `${churchDays} dias, ${churchHours} horas e ${churchMinutes} minutos`;
+            } else {
+                churchCountdown.innerHTML = "O grande dia chegou! Estamos ansiosos para vê-lo!";
+            }
+            
+            // Contagem para a festa
+            const partyDiff = partyDate - now;
+            
+            if (partyDiff > 0) {
+                const partyDays = Math.floor(partyDiff / (1000 * 60 * 60 * 24));
+                const partyHours = Math.floor((partyDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const partyMinutes = Math.floor((partyDiff % (1000 * 60 * 60)) / (1000 * 60));
+                
+                partyCountdown.innerHTML = `${partyDays} dias, ${partyHours} horas e ${partyMinutes} minutos`;
+            } else {
+                partyCountdown.innerHTML = "A festa já começou! Venha celebrar conosco!";
+            }
+        }
+        
+        // Atualizar contagem regressiva a cada minuto
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    </script>
+</body>
+</html>
